@@ -79,7 +79,7 @@ export default function Navbar() {
               isEnglish ? "h-10 w-10 text-[13px]" : "h-11 w-11 text-sm"
             }`}
           >
-            NP
+           Kunjana
           </span>
           <div>
             <p
@@ -87,7 +87,7 @@ export default function Navbar() {
                 isEnglish ? "text-lg" : "text-xl"
               }`}
             >
-              NaturePure Co.
+              Kunjana Agro.
             </p>
             <p
               className={`font-semibold text-[#4a8c28] uppercase ${
