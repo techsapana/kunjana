@@ -1,0 +1,104 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  password String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id              Int      @id @default(autoincrement())
+  title           String
+  titleI18n       Json?
+  description     String
+  descriptionI18n Json?
+  content         String
+  contentI18n     Json?
+  imageUrl        String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Gallery {
+  id        Int            @id @default(autoincrement())
+  title     String
+  titleI18n Json?
+  images    GalleryImage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model GalleryImage {
+  id  Int    @id @default(autoincrement())
+  url String
+
+  gallery   Gallery @relation(fields: [galleryId], references: [id], onDelete: Cascade)
+  galleryId Int
+}
+
+model TeamMember {
+  id              Int    @id @default(autoincrement())
+  name            String
+  nameI18n        Json?
+  role            String
+  roleI18n        Json?
+  imageUrl        String
+  description     String
+  descriptionI18n Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Partner {
+  id              Int    @id @default(autoincrement())
+  name            String
+  nameI18n        Json?
+  imageUrl        String
+  description     String
+  descriptionI18n Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id              Int            @id @default(autoincrement())
+  name            String
+  nameI18n        Json?
+  features        String[]
+  featuresI18n    Json?
+  content         String
+  contentI18n     Json?
+  description     String
+  descriptionI18n Json?
+  price           Float
+  images          ProductImage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProductImage {
+  id  Int    @id @default(autoincrement())
+  url String
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+}

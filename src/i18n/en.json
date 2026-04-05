@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "blogs": "Blogs",
+    "gallery": "Gallery",
+    "becomePartner": "Become a Partner",
+    "farming": "Farming",
+    "soilSolutions": "Soil Solutions",
+    "contact": "Contact",
+    "getInTouch": "Get in Touch"
+  },
+  "hero": {
+    "title": "Premium Organic Poultry Supplements",
+    "subtitle": "Elevate your flock's health with our scientifically formulated, 100% organic supplements. Designed for sustainable farming excellence.",
+    "cta": "Explore Products"
+  },
+  "home": {
+    "partnerBenefits": {
+      "title": "Why Partner With Us",
+      "benefits": [
+        "Priority access to high-demand organic formulations",
+        "Co-marketing support with technical product training",
+        "Territory-focused growth planning and onboarding support",
+        "Responsive sales and farm advisory coordination"
+      ]
+    },
+    "farmingHighlights": {
+      "title": "Farming Excellence",
+      "highlights": [
+        "Improves digestive stability and daily feed utilization",
+        "Supports immunity under seasonal and environmental stress",
+        "Helps improve consistency of growth and flock performance",
+        "Reduces dependency on synthetic growth interventions"
+      ]
+    },
+    "soilSolutions": {
+      "title": "Soil Health Solutions",
+      "highlights": [
+        "Field-oriented soil diagnostics and fertility review",
+        "Nutrient balancing programs aligned with crop cycles",
+        "Practical implementation guidance for long-term soil health",
+        "Integrated advisory for poultry-crop sustainability systems"
+      ]
+    },
+    "latestBlogs": "Latest Insights",
+    "featuredPartners": "Featured Partners"
+  },
+  "about": {
+    "title": "About NaturePure Co.",
+    "description": "We are committed to sustainable agriculture through innovation and quality.",
+    "mission": "Our Mission",
+    "missionText": "To provide the highest quality organic poultry supplements that enhance flock health and promote sustainable farming practices."
+  },
+  "products": {
+    "title": "Our Products",
+    "description": "Explore our range of organic supplements",
+    "viewDetails": "View Details",
+    "price": "Price"
+  },
+  "blogs": {
+    "title": "Blog & Insights",
+    "description": "Learn from our experts",
+    "readMore": "Read More"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "description": "Visual stories from our farm"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "We'd love to hear from you",
+    "name": "Your Name",
+    "email": "Email Address",
+    "message": "Message",
+    "submit": "Send Message",
+    "phone": "Phone",
+    "location": "Location"
+  },
+  "footer": {
+    "company": "Company",
+    "support": "Support",
+    "products": "Products",
+    "about": "About Us",
+    "becomePartner": "Become a Partner",
+    "farming": "Farming",
+    "soilSolutions": "Soil Solutions",
+    "contact": "Contact",
+    "blogs": "Blogs",
+    "copyright": "© 2026 NaturePure Co. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}
