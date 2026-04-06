@@ -72,7 +72,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-3 hover:scale-105 transition duration-150"
-          aria-label="NaturePure home"
+          aria-label="KunjanAgro home"
         >
           <span
             className={`inline-flex items-center justify-center rounded-2xl bg-[#4a8c28] font-bold text-white shadow-lg shadow-[#4a8c28]/30 ${
@@ -87,7 +87,7 @@ export default function Navbar() {
                 isEnglish ? "text-lg" : "text-xl"
               }`}
             >
-              Kunjana Agro.
+              Kunjana Agro
             </p>
             <p
               className={`font-semibold text-[#4a8c28] uppercase ${
