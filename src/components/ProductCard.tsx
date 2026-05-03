@@ -55,9 +55,9 @@ export default function ProductCard({
   );
 
   return (
-    <article className="group overflow-hidden rounded-4xl border border-[#7bbf42]/18 bg-[#f2f2eb] shadow-[0_14px_28px_rgba(30,58,15,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(30,58,15,0.14)]">
-      <Link href={`/products/${id}`} className="block h-full">
-        <div className="relative h-52 bg-[#dbe7c7]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-4xl border border-[#7bbf42]/18 bg-[#f2f2eb] shadow-[0_14px_28px_rgba(30,58,15,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(30,58,15,0.14)]">
+      <Link href={`/products/${id}`} className="flex h-full flex-1 flex-col">
+        <div className="relative shrink-0 h-48 sm:h-52 bg-[#dbe7c7]">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -67,50 +67,33 @@ export default function ProductCard({
             />
           ) : (
             <div className="flex h-full flex-col items-center justify-center gap-2 text-[#5a7d45]">
-              <div className="grid h-14 w-14 place-content-center rounded-2xl border border-[#7bbf42]/35 bg-white/55 text-2xl">
+              <div className="grid h-12 w-12 sm:h-14 sm:w-14 place-content-center rounded-2xl border border-[#7bbf42]/35 bg-white/55 text-xl sm:text-2xl">
                 □
               </div>
-              <p className="text-sm font-semibold tracking-wide uppercase">
+              <p className="text-xs sm:text-sm font-semibold tracking-wide uppercase">
                 {language === "en" ? "Product Image" : "उत्पादन चित्र"}
               </p>
             </div>
           )}
         </div>
 
-        <div className="flex min-h-88 flex-col bg-[#fdfdfc] p-6">
-          <h3 className="text-4xl leading-[1.15] text-[#1e3a0f]">
+        <div className="flex flex-1 flex-col bg-[#fdfdfc] p-4 sm:p-5 md:p-6">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl leading-[1.15] text-[#1e3a0f]">
             {localizedName}
           </h3>
 
-          <p className="mt-3 text-base leading-8 text-[#4b5f3d]">
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed sm:leading-8 text-[#4b5f3d]">
             {previewContent ||
               (language === "en"
                 ? "High-performance organic support for poultry health."
                 : "कुखुराको स्वास्थ्यका लागि उच्च-प्रदर्शन जैविक सहयोग।")}
           </p>
-
-          <ul className="mt-5 space-y-2 text-sm leading-6 text-[#375a26]">
-            {(previewFeatures.length > 0
-              ? previewFeatures
-              : [
-                  language === "en"
-                    ? "Feature highlights will appear here."
-                    : "विशेषता बुँदाहरू यहाँ देखिनेछन्।",
-                ]
-            ).map((feature) => (
-              <li key={feature} className="flex items-start gap-2">
-                <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[#63a73a]" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-auto pt-6">
+          <div className="mt-auto pt-4 sm:pt-5 md:pt-6">
             <p className="text-sm font-semibold tracking-wide text-[#4a8c28] uppercase">
               {language === "en" ? "NPR" : "रु."} {price.toLocaleString()}
             </p>
 
-            <span className="mt-4 inline-flex w-full items-center justify-center rounded-full border-2 border-[#4a8c28] px-4 py-2.5 text-sm font-semibold text-[#2d5a1b] transition hover:bg-[#eaf4d8]">
+            <span className="mt-2 inline-flex w-full items-center justify-center rounded-full border-2 border-[#4a8c28] px-4 py-2.5 text-sm font-semibold text-[#2d5a1b] transition hover:bg-[#eaf4d8]">
               {language === "en" ? "View Details" : "विवरण हेर्नुहोस्"}
             </span>
           </div>

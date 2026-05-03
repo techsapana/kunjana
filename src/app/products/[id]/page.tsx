@@ -20,61 +20,36 @@ type ProductDetail = {
   images: string[];
 };
 
+import prisma from "@/lib/prisma";
+
 const resolveProduct = async (id: number): Promise<ProductDetail | null> => {
   try {
-    const requestHeaders = await headers();
-    const protocol = requestHeaders.get("x-forwarded-proto") ?? "http";
-    const host =
-      requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
-
-    if (!host) {
-      return null;
-    }
-
-    const response = await fetch(`${protocol}://${host}/api/products/${id}`, {
-      cache: "no-store",
+    const productData = await prisma.product.findUnique({
+      where: { id },
+      include: { images: true },
     });
 
-    if (!response.ok) {
-      return null;
-    }
-
-    const payload = (await response.json()) as {
-      data?: {
-        id: number;
-        name: string;
-        nameI18n?: unknown;
-        content: string;
-        contentI18n?: unknown;
-        features: string[];
-        featuresI18n?: unknown;
-        description: string;
-        descriptionI18n?: unknown;
-        price: number;
-        images: Array<{ url: string }>;
-      };
-    };
-
-    if (!payload.data) {
+    if (!productData) {
       return null;
     }
 
     return {
-      id: payload.data.id,
-      name: getLocalizedText(payload.data.nameI18n, payload.data.name),
-      content: getLocalizedText(payload.data.contentI18n, payload.data.content),
+      id: productData.id,
+      name: getLocalizedText(productData.nameI18n, productData.name),
+      content: getLocalizedText(productData.contentI18n, productData.content),
       features: getLocalizedStringList(
-        payload.data.featuresI18n,
-        payload.data.features ?? [],
+        productData.featuresI18n,
+        productData.features ?? [],
       ),
       description: getLocalizedText(
-        payload.data.descriptionI18n,
-        payload.data.description,
+        productData.descriptionI18n,
+        productData.description,
       ),
-      price: payload.data.price,
-      images: payload.data.images.map((image) => image.url),
+      price: productData.price,
+      images: productData.images.map((image) => image.url),
     };
-  } catch {
+  } catch (error) {
+    console.error("Error fetching product:", error);
     return null;
   }
 };
