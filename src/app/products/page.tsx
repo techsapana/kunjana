@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import ProductCard from "@/src/components/ProductCard";
+import PaginationControls from "@/src/components/PaginationControls";
 import SectionWrapper from "@/src/components/SectionWrapper";
 import { Translated } from "@/src/components/TranslationComponents";
 import {
@@ -9,40 +10,49 @@ import {
   type LocalizedText,
 } from "@/src/helpers/i18n";
 
-const getProducts = async () => {
+const getProducts = async (page: number, pageSize: number) => {
   try {
-    const products = await prisma.product.findMany({
-      orderBy: { createdAt: "desc" },
-      include: { images: true },
-    });
-    return products.map((product) => ({
-      id: product.id,
-      name: getLocalizedText(product.nameI18n, product.name),
-      content: getLocalizedText(
-        product.contentI18n,
-        product.content || product.description,
-      ),
-      features: getLocalizedStringList(
-        product.featuresI18n,
-        product.features ?? [],
-      ),
-      price: product.price,
-      imageUrl: product.images[0]?.url,
-    }));
+    const skip = (page - 1) * pageSize;
+    const [products, totalCount] = await Promise.all([
+      prisma.product.findMany({
+        skip,
+        take: pageSize,
+        orderBy: { createdAt: "desc" },
+        include: { images: true },
+      }),
+      prisma.product.count(),
+    ]);
+    return {
+      products: products.map((product) => ({
+        id: product.id,
+        name: getLocalizedText(product.nameI18n, product.name),
+        content: getLocalizedText(
+          product.contentI18n,
+          product.content || product.description,
+        ),
+        features: getLocalizedStringList(
+          product.featuresI18n,
+          product.features ?? [],
+        ),
+        price: product.price,
+        imageUrl: product.images[0]?.url,
+      })),
+      totalPages: Math.ceil(totalCount / pageSize),
+    };
   } catch {
-    return [];
+    return { products: [], totalPages: 0 };
   }
 };
 
-export default async function ProductsPage() {
-  const products = (await getProducts()) as {
-    id: number;
-    name: LocalizedText;
-    content: LocalizedText;
-    features: LocalizedStringList;
-    price: number;
-    imageUrl?: string;
-  }[];
+export default async function ProductsPage(props: {
+  searchParams?: Promise<{ page?: string }> | { page?: string };
+}) {
+  // Await searchParams to support both Next.js 14 (object) and Next.js 15 (promise)
+  const searchParams = await props.searchParams;
+  const page = Number(searchParams?.page) || 1;
+  const pageSize = 9;
+
+  const { products, totalPages } = await getProducts(page, pageSize);
 
   return (
     <>
@@ -88,14 +98,18 @@ export default async function ProductsPage() {
               <ProductCard
                 key={product.id}
                 id={product.id}
-                name={product.name}
-                content={product.content}
-                features={product.features}
+                name={product.name as LocalizedText}
+                content={product.content as LocalizedText}
+                features={product.features as LocalizedStringList}
                 price={product.price}
                 imageUrl={product.imageUrl}
               />
             ))}
           </div>
+        )}
+        
+        {totalPages > 1 && (
+          <PaginationControls totalPages={totalPages} currentPage={page} />
         )}
       </SectionWrapper>
     </>
