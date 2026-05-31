@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from 'next/image';
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -63,49 +64,26 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full border-b border-[#7bbf42]/20 bg-white/86 backdrop-blur-xl">
-      <div
-        className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 ${
-          isEnglish ? "h-18" : "h-20"
-        }`}
-      >
+    <div
+      className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 ${
+        isEnglish ? "h-18" : "h-20"
+      }`}
+    >
         <Link
           href="/"
           className="flex items-center gap-3 hover:scale-105 transition duration-150"
-          aria-label="KunjanAgro home"
+          aria-label="KunjanaAgro home"
         >
-          <span
-            className={`inline-flex items-center justify-center rounded-2xl bg-[#4a8c28] font-bold text-white shadow-lg shadow-[#4a8c28]/30 ${
-              isEnglish ? "h-10 w-10 text-[13px]" : "h-11 w-11 text-sm"
-            }`}
-          >
-           Kunjana
-          </span>
-          <div>
-            <p
-              className={`leading-none text-[#1e3a0f] ${
-                isEnglish ? "text-lg" : "text-xl"
-              }`}
-            >
-              Kunjana Agro
-            </p>
-            <p
-              className={`font-semibold text-[#4a8c28] uppercase ${
-                isEnglish
-                  ? "text-[9px] tracking-[0.12em]"
-                  : "text-[10px] tracking-[0.15em]"
-              }`}
-            >
-              {language === "en" ? "Organic Supplements" : "जैविक पूरक"}
-            </p>
-          </div>
+          <Image 
+            src="/image/logo.png" 
+            alt="Kunjana Agro Logo" 
+            width={160} 
+            height={50} 
+            className="object-contain"
+            priority
+          />
         </Link>
-
-        <div
-          className={`hidden items-center rounded-full border border-[#7bbf42]/22 bg-white/92 lg:flex ${
-            isEnglish ? "gap-0.5 p-1.5" : "gap-1 p-2"
-          }`}
-        >
+      
           {navLinks.map((item) => (
             <Link
               key={item.href}
