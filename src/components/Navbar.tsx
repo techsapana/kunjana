@@ -64,46 +64,52 @@ export default function Navbar() {
   };
 
   return (
-    <div
-      className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 ${
-        isEnglish ? "h-18" : "h-20"
-      }`}
-    >
-        <Link
-          href="/"
-          className="flex items-center gap-3 hover:scale-105 transition duration-150"
-          aria-label="KunjanaAgro home"
-        >
-          <Image 
-            src="/image/logo.png" 
-            alt="Kunjana Agro Logo" 
-            width={160} 
-            height={50} 
-            className="object-contain"
-            priority
-          />
-        </Link>
-      
-          {navLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={desktopLinkClass(item.href)}
-            >
-              <TranslatedLabel labelKey={item.label} />
-            </Link>
-          ))}
+    <nav className="fixed left-0 top-0 z-50 w-full border-b border-[#7bbf42]/20 bg-white/80 backdrop-blur-md">
+      <div
+        className={`mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 ${
+          isEnglish ? "h-18" : "h-20"
+        }`}
+      >
+        {/* Logo and Desktop Links Left Wrapper */}
+        <div className="flex items-center gap-6">
           <Link
-            href="/contact"
-            className={`ml-1 inline-flex items-center duration-200 rounded-full bg-[#4a8c28] font-semibold text-white transition hover:bg-[#2d5a1b] ${
-              isEnglish ? "px-4 py-2 text-[13px]" : "px-5 py-2.5 text-sm"
-            }`}
+            href="/"
+            className="flex items-center gap-3 hover:scale-105 transition duration-150"
+            aria-label="KunjanaAgro home"
           >
-            {t("nav.getInTouch")}
+            <Image 
+              src="/image/logo.png" 
+              alt="Kunjana Agro Logo" 
+              width={160} 
+              height={50} 
+              className="object-contain"
+              priority
+            />
           </Link>
+        
+          {/* Desktop Navigation Links */}
+          <div className="hidden lg:flex items-center gap-3">
+            {navLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={desktopLinkClass(item.href)}
+              >
+                <TranslatedLabel labelKey={item.label} />
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              className={`ml-1 inline-flex items-center duration-200 rounded-full bg-[#4a8c28] font-semibold text-white transition hover:bg-[#2d5a1b] ${
+                isEnglish ? "px-4 py-2 text-[13px]" : "px-5 py-2.5 text-sm"
+              }`}
+            >
+              {t("nav.getInTouch")}
+            </Link>
+          </div>
         </div>
 
-        {/* Language Toggle */}
+        {/* Right side controls: Language Toggle & Action Menu Button */}
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -132,6 +138,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu Panel */}
       {mobileOpen && (
         <div className="border-t border-[#7bbf42]/24 bg-white/96 px-4 py-4 lg:hidden max-h-[calc(100dvh-5rem)] overflow-y-auto">
           <div className="space-y-2">
