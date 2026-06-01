@@ -312,17 +312,30 @@ export default async function Home() {
           </div>
         ) : (
           <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {products.slice(0, 4).map((product) => (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                content={product.content}
-                features={product.features}
-                price={product.price}
-                imageUrl={product.imageUrl}
-              />
-            ))}
+            {products.slice(0, 4).map((product) => {
+              // 1. Safe Image extraction fallback
+              let cardImageUrl = product.imageUrl || "";
+              if (!cardImageUrl && (product as any).images && (product as any).images[0]) {
+                cardImageUrl = (product as any).images[0].url || (product as any).images[0];
+              }
+
+              // 2. Safe Price extraction fallback
+              const cardPrice = typeof product.price === 'number' 
+                ? product.price 
+                : Number(product.price) || 0;
+
+              return (
+                <ProductCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  content={product.content}
+                  features={product.features}
+                  price={cardPrice}
+                  imageUrl={cardImageUrl}
+                />
+              );
+            })}
           </div>
         )}
       </SectionWrapper>

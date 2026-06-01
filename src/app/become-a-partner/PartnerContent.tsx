@@ -150,8 +150,8 @@ export default function PartnerContent({ initialPartners }: PartnerContentProps)
           </span>
           <h1 className="section-title mt-4">
             {text(
-              "Build regional growth with NaturePure supplements",
-              "नेचरप्योर पूरकसँग क्षेत्रीय वृद्धि निर्माण गर्नुहोस्",
+              "Build regional growth with Kunjana Agro supplements",
+              "कुञ्जना एग्रो पूरकसँग क्षेत्रीय वृद्धि निर्माण गर्नुहोस्",
             )}
           </h1>
           <p className="section-subtitle mt-4">
@@ -335,8 +335,8 @@ export default function PartnerContent({ initialPartners }: PartnerContentProps)
               </span>
               <h2 className="section-title mt-4">
                 {text(
-                  "Growing network already distributing NaturePure",
-                  "नेचरप्योर वितरण गरिरहेको बढ्दो नेटवर्क",
+                  "Growing network already distributing Kunjana Agro",
+                  "कुञ्जना एग्रो वितरण गरिरहेको बढ्दो नेटवर्क",
                 )}
               </h2>
               <p className="section-subtitle mt-3">

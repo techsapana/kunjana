@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "products": "Products",
     "blogs": "Blogs",
     "gallery": "Gallery",
@@ -13,7 +13,7 @@
   },
   "hero": {
     "title": "Premium Organic Poultry Supplements",
-    "subtitle": "Elevate your flock's health with our scientifically formulated, 100% organic supplements. Designed for sustainable farming excellence.",
+    "subtitle": "Improve your flock's health with our scientifically formulated, 100% organic supplements. Designed for sustainable agricultural excellence.",
     "cta": "Explore Products"
   },
   "home": {
@@ -22,33 +22,33 @@
       "benefits": [
         "Priority access to high-demand organic formulations",
         "Co-marketing support with technical product training",
-        "Territory-focused growth planning and onboarding support",
+        "Region-focused growth planning and initial integration support",
         "Responsive sales and farm advisory coordination"
       ]
     },
     "farmingHighlights": {
       "title": "Farming Excellence",
       "highlights": [
-        "Improves digestive stability and daily feed utilization",
-        "Supports immunity under seasonal and environmental stress",
-        "Helps improve consistency of growth and flock performance",
-        "Reduces dependency on synthetic growth interventions"
+        "To improve digestive stability and daily feed utilization",
+        "To support immunity under seasonal and environmental stress",
+        "To improve the stability of growth and flock performance",
+        "To reduce dependence on artificial growth interventions"
       ]
     },
     "soilSolutions": {
       "title": "Soil Health Solutions",
       "highlights": [
-        "Field-oriented soil diagnostics and fertility review",
-        "Nutrient balancing programs aligned with crop cycles",
+        "Region-oriented soil diagnostics and fertility reviews",
+        "Nutrient balance programs aligned with crop cycles",
         "Practical implementation guidance for long-term soil health",
-        "Integrated advisory for poultry-crop sustainability systems"
+        "Integrated advice for poultry-crop sustainability systems"
       ]
     },
     "latestBlogs": "Latest Insights",
     "featuredPartners": "Featured Partners"
   },
   "about": {
-    "title": "About NaturePure Co.",
+    "title": "Kunjana Agro",
     "description": "We are committed to sustainable agriculture through innovation and quality.",
     "mission": "Our Mission",
     "missionText": "To provide the highest quality organic poultry supplements that enhance flock health and promote sustainable farming practices."
@@ -60,7 +60,7 @@
     "price": "Price"
   },
   "blogs": {
-    "title": "Blog & Insights",
+    "title": "Blogs & Insights",
     "description": "Learn from our experts",
     "readMore": "Read More"
   },
@@ -70,7 +70,7 @@
   },
   "contact": {
     "title": "Get in Touch",
-    "description": "We'd love to hear from you",
+    "description": "We would love to hear from you",
     "name": "Your Name",
     "email": "Email Address",
     "message": "Message",
@@ -79,6 +79,9 @@
     "location": "Location"
   },
   "footer": {
+    "title": "Kunjana Agro Co.",
+    "subtitle": "Organic Supplements",
+    "description": "Premium organic poultry supplements designed for a healthier flock, stronger immunity, and sustainable farm performance.",
     "company": "Company",
     "support": "Support",
     "products": "Products",
@@ -88,7 +91,7 @@
     "soilSolutions": "Soil Solutions",
     "contact": "Contact",
     "blogs": "Blogs",
-    "copyright": "© 2026 NaturePure Co. All rights reserved."
+    "copyright": "© 2026 Kunjana Agro. All rights reserved."
   },
   "common": {
     "loading": "Loading...",
