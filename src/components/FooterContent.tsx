@@ -49,7 +49,7 @@ export default function FooterContent({ products }: FooterContentProps) {
             <div className="group relative w-full max-w-[340px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-2.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06] hover:shadow-xl hover:shadow-black/20">
               <div className="relative overflow-hidden rounded-xl">
                 <Image
-                  src="/image/footer.jpg"
+                  src="/image/footer.png"
                   alt="Kunjana Agro Banner"
                   width={450}
                   height={280}
